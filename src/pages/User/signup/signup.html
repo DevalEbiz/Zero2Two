@@ -1,0 +1,62 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Create an Account</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form novalidate (ngSubmit)="doSignup()" style="margin-left:15px; margin-right:15px; margin-top:30px" [formGroup]="register">
+    <ion-list>
+      <ion-card>
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="account.name" placeholder="Full Name" formControlName="name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="email" [(ngModel)]="account.email" placeholder="Email address" formControlName="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="password" [(ngModel)]="account.pass" placeholder="password" formControlName="pass"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Show Password</ion-label>
+          <ion-checkbox [(ngModel)]="showPwd" color="register" (ionChange)="onCountrySel()" formControlName="showPwd"></ion-checkbox>
+        </ion-item>
+
+        <ion-item>
+          <ion-input type="number" [(ngModel)]="account.phone" placeholder="Mobile Number" formControlName="mob"></ion-input>
+        </ion-item>
+        <!-- ion-item>
+          <ion-label>Select Country</ion-label>
+          <ion-select (ionChange)="onCountrySel()" [(ngModel)]="selCountry">
+            <ion-option value="{{c.id}}" *ngFor="let c of account.country"> {{c.title}} </ion-option>
+          </ion-select>
+        </ion-item -->
+      </ion-card>
+      <!--Validation msgs -->
+      <p *ngIf="register.get('name').hasError('required') && register.get('name').touched">
+        Full name is required
+      </p>
+      <p *ngIf="register.get('email').hasError('required') && register.get('email').touched">
+        Please provide Email address
+      </p>
+      <p *ngIf="(register.get('pass').hasError('required') && register.get('pass').touched) || register.get('pass').hasError('minlength')">
+        Password must have 6 character
+      </p>
+      <p *ngIf="(register.get('mob').hasError('required') && register.get('mob').touched ) || register.get('mob').hasError(maxlength)">
+        Mobile no. must have 9 numbers
+      </p>
+      <p *ngIf="register.get('showPwd').hasError('required') && register.get('showPwd').touched">
+        show password
+      </p>
+
+      <button ion-button color="primary" [disabled]="register.invalid" block>Create Account</button>
+
+
+    </ion-list>
+  </form>
+</ion-content>

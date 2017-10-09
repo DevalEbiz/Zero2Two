@@ -1,0 +1,31 @@
+<ion-header no-shadow>
+  <ion-navbar>
+    <ion-title>
+      Welcome
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce>
+
+  <ion-list style="top:50% !important" inset>
+    <ion-item style="width:80% !important;">
+      <ion-icon name="globe" item-start></ion-icon>
+
+      <ion-label>Select Country</ion-label>
+      <ion-select (ionChange)="onChange()" [(ngModel)]="selCountry" style="float:right !important">
+        <ion-option value="{{c.id}}" *ngFor="let c of country"> {{c.title}} </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item style="margin-top:20px; width:80% !important;">
+      <ion-icon name="car" item-start></ion-icon>
+
+      <ion-label>Select Delivery Area</ion-label>
+      <ion-select (ionChange)="onChange2()" [(ngModel)]="selArea" style="float:right !important">
+        <ion-option value="{{addr.pin}}" *ngFor="let addr of area">{{addr.addr}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

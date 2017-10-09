@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Login into Zero2Two</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <p style="color:#c60200; text-align:center; margin-top:60px"> Use the email address and password used <br/> when you created your account. </p>
+
+  <form novalidate (ngSubmit)="doLogin(user)" style="margin-left:30px; margin-right:30px" [formGroup]="user">
+
+    <ion-list>
+      <ion-card style="margin-top:20px;">
+        <ion-item>
+          <ion-icon name="mail" item-left></ion-icon>
+          <ion-input type="email" [(ngModel)]="account.email" placeholder="Email address" formControlName="email"></ion-input>
+
+        </ion-item>
+
+        <ion-item>
+          <ion-icon name="lock" item-left></ion-icon>
+          <ion-input type="password" [(ngModel)]="account.password" placeholder="Password" formControlName="pass"></ion-input>
+        </ion-item>
+      </ion-card>
+      <!--Validations msgs  -->
+
+      <p *ngIf="user.get('email').hasError('required') && user.get('email').touched">
+        Please provide email address
+      </p>
+      <p *ngIf="(user.get('pass').hasError('required') && user.get('pass').touched) || user.get('pass').hasError('minlength')">
+        Password must have 6 characters
+      </p>
+
+      <button ion-button color="secondary" style="margin-top:30px" [disabled]="user.invalid" block>Login</button>
+    </ion-list>
+  </form>
+  <h5 style="text-align:center; margin-top:15px"> Forgot your password? </h5>
+  <br />
+  <p style="color:cornflowerblue; text-align:center"> New Customer? </p> <br/>
+  <div style="text-align:center">
+    <button ion-button color="register" (click)="goToSignup()" block> Create an Account </button>
+  </div>
+
+</ion-content>

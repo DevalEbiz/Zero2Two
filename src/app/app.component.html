@@ -1,0 +1,34 @@
+<ion-menu [content]="content">
+    <ion-header>
+    </ion-header>
+
+    <ion-content>
+        <div style="background-color:salmon; height:15% !important">
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <button ion-button round (click)="goToLogin()">Login</button>
+                    </ion-col>
+                    <ion-col col-sm-4>
+                        <button ion-button round icon-only style="font-size:1.7rem"> <ion-icon name="contact"></ion-icon></button>
+                    </ion-col>
+                    <ion-col>
+                        <button ion-button (click)="goToSignup()" round>Signup</button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+        </div>
+        <ion-list style="padding-left:5px;padding-right:5px;">
+            <ion-item color="light" style="text-align:center;font-size:15px;margin-bottom:20px">
+                <ion-icon name="notifications" color="primary" item-start></ion-icon>
+                Notifications
+            </ion-item>
+            <ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)" style="padding-left:10px;padding-right:10px;text-align:center">
+                {{p.title}}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+
+</ion-menu>
+<ion-nav #content [root]="rootPage"></ion-nav>
