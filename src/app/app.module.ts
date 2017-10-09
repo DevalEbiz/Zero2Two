@@ -19,6 +19,11 @@ import { ContactPage } from '../pages/User/contact/contact';
 import { AddressPage } from '../pages/User/address/address';
 import { SignupPage } from '../pages/User/signup/signup';
 import { TabsPage } from '../pages/User/tabs/tabs';
+
+
+// Vendor Side
+import { VendorLoginPage } from '../pages/Vendor/vendor-login/vendor-login'
+
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 
@@ -44,7 +49,8 @@ export function provideSettings(storage: Storage) {
     ContactPage,
     AddressPage,
     SignupPage,
-    TabsPage
+    TabsPage,
+    VendorLoginPage
   ],
   imports: [
     BrowserModule,
@@ -64,7 +70,8 @@ export function provideSettings(storage: Storage) {
     ContactPage,
     AddressPage,
     SignupPage,
-    TabsPage
+    TabsPage,
+    VendorLoginPage
   ],
   providers: [
     Camera,

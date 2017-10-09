@@ -7,6 +7,9 @@ import { HomePage } from '../home/home';
 import { SignupPage } from '../signup/signup';
 import { TabsPage } from '../tabs/tabs';
 
+// Vendor Side
+import { VendorLoginPage } from '../../Vendor/vendor-login/vendor-login';
+
 
 @IonicPage()
 @Component({
@@ -51,5 +54,8 @@ export class LoginPage {
   ionViewWillLeave() {
     // enable the root left menu when leaving the tutorial page
     this.menu.enable(true);
+  }
+  goToVendor() {
+    this.navCtrl.push(VendorLoginPage);
   }
 }
